@@ -1,0 +1,42 @@
+.container-input-detail-task {
+   display: flex;
+   flex-direction: column;
+   gap: 15px;
+}
+
+.container-input-detail-task input {
+   box-sizing: border-box;
+   padding-left: 20px;
+   outline: none;
+   border: 1px solid rgba(0, 0, 0, 20%);
+   width: 450px;
+   height: 45px;
+   border-radius: 999px;
+}
+
+.container-input-datetime {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+}
+
+.item-input-datetime input[type='datetime-local'] {
+   padding: 0 20px;
+   width: 210px;
+   color: rgba(0, 0, 0, 60%);
+}
+
+.item-input-datetime.update input[type='datetime-local'] {
+   border: 2px solid rgba(139, 0, 0, 0.861);
+   color: rgba(139, 0, 0, 0.861);
+}
+
+.item-input-datetime.update span {
+   font-weight: 600;
+   color: rgba(139, 0, 0, 0.861);
+}
+
+.btn-confirm__taskdetail {
+   margin: 15px 0;
+   width: 100%;
+}

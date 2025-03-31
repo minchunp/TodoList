@@ -1,0 +1,221 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200..1000&family=Open+Sans:wght@300..800&family=Winky+Sans:ital,wght@0,300..900;1,300..900&display=swap');
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Nunito", sans-serif;
+  /* height: 100vh; */
+  margin: 0;
+  background-color: #fff;
+}
+
+.container-body {
+  /* height: 100vh; */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+
+/* Box Chat Gemini */
+.chat-gemini {
+  width: 470px;
+}
+
+.title-chat-gemini {
+  text-align: center;
+  font-weight: 800;
+  font-size: 28px;
+}
+
+.container-chatbox {
+  position: relative;
+}
+
+.chat-box-gemini {
+  width: 100%;
+  height: 45px;
+  border-radius: 999px;
+  outline: none;
+  border: 1px solid rgba(0, 0, 0, 20%);
+  box-sizing: border-box;
+  padding-left: 20px;
+}
+
+.btn-chatbox {
+  cursor: pointer;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  outline: none;
+  border: none;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  font-size: 13px;
+  color: #fff;
+  background-color: #282a2c;
+  transition: all .2s ease-in-out;
+}
+
+.btn-chatbox:hover {
+  background-color: #525252;
+}
+
+p.tiltle-result-chatbox {
+  font-weight: 700;
+}
+
+.container-resul-chatbox{
+  overflow-y: scroll;
+  max-height: 500px;
+}
+
+/* Box To-do list */
+.body-container {
+  padding: 30px 40px;
+  width: 33%;
+  /* margin: 0 auto; */
+  margin-top: 30px;
+  background-color: #525252;
+  border-radius: 50px;
+}
+
+.main-container {
+  margin: 0 auto;
+  width: 95%;
+}
+
+.title-todoList {
+  display: grid;
+  place-items: center;
+}
+
+.title-todoList h1 {
+  margin-top: 0;
+  font-weight: 900;
+  border-radius: 30px;
+  display: inline-block;
+  padding: 20px 80px;
+  background-color: #262626;
+  color: #fff;
+}
+
+.box-add-task {
+  margin-top: 20px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid lightgray;
+}
+
+.input-add-task {
+  position: relative;
+}
+
+.input-add-task input {
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  width: 100%;
+  height: 45px;
+  padding-left: 20px;
+  border-radius: 999px;
+}
+
+.func-submit-input-task {
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.func-submit-input-task i {
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.container-btn-add-task {
+  position: relative;
+}
+
+.container-btn-add-task:hover .btn-add-task {
+  background-color: #26262651;
+  color: #262626;
+}
+
+.container-btn-add-task:hover i {
+  color: #262626;
+}
+
+.container-btn-add-task i {
+  font-size: 18px;
+  position: absolute;
+  color: #fff;
+  top: 50%;
+  left: 22%;
+  transform: translate(-50%, -50%);
+  transition: all .3s ease-in-out;
+}
+
+.btn-add-task {
+  font-family: "Nunito", sans-serif;
+  cursor: pointer;
+  outline: none;
+  border: 2px solid #262626;
+  height: 45px;
+  width: 140px;
+  border-radius: 999px;
+  background-color: #262626;
+  color: #fff;
+  transition: all .3s ease-in-out;
+}
+
+.container-title-list-task,
+.func-list-task {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.container-title-list-task {
+  margin-top: 15px;
+}
+
+.title-list-task {
+  font-weight: 600;
+  padding: 0 30px;
+  border-radius: 999px;
+  display: inline-block;
+  background-color: #262626;
+  color: #fff;
+}
+
+.func-list-task {
+  font-size: 15px;
+  gap: 15px;
+}
+
+.func-list-task p {
+  padding: 10px 15px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all .3s ease-in-out;
+}
+
+.func-list-task p:hover {
+  color: #fff;
+}
+
+.func-list-task p.check {
+  font-size: 13px;
+  background-color: #262626;
+  color: #fff;
+  padding: 10px 15px;
+  border: 1px solid #fff;
+  border-radius: 999px;
+}
