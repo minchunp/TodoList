@@ -1,5 +1,6 @@
-import React, { useEffect } from "react";
-import "../../../assets/modalError.css"
+import React from "react";
+import "../../assets/modalError.css"
+import { useEffectHiddenModal } from "@/hooks/useEffectHiddenModal";
 
 interface ModalProps {
    contentError: string;
@@ -8,17 +9,7 @@ interface ModalProps {
 }
 
 const ModalError: React.FC<ModalProps> = ({contentError, isOpen, onClose}) => {
-   useEffect(() => {
-      if (isOpen) {
-         document.body.style.overflow = "hidden";
-      } else {
-         document.body.style.overflow = "";
-      }
-
-      return () => {
-         document.body.style.overflow = "";
-      }
-   }, [isOpen]);
+   useEffectHiddenModal(isOpen);
 
    return (
       <>

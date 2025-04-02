@@ -75,12 +75,18 @@ p.tiltle-result-chatbox {
   max-height: 500px;
 }
 
+.container-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
 /* Box To-do list */
 .body-container {
   padding: 30px 40px;
   width: 33%;
-  /* margin: 0 auto; */
-  margin-top: 30px;
+  margin-top: 15px;
   background-color: #525252;
   border-radius: 50px;
 }
@@ -88,6 +94,7 @@ p.tiltle-result-chatbox {
 .main-container {
   margin: 0 auto;
   width: 95%;
+  position: relative;
 }
 
 .title-todoList {
@@ -107,7 +114,7 @@ p.tiltle-result-chatbox {
 
 .box-add-task {
   margin-top: 20px;
-  padding-bottom: 40px;
+  padding-bottom: 15px;
   border-bottom: 1px solid lightgray;
 }
 
@@ -219,3 +226,78 @@ p.tiltle-result-chatbox {
   border: 1px solid #fff;
   border-radius: 999px;
 }
+
+/* Css Container input search */
+.main-search-task {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  position: absolute;
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-65px);
+  transition: all .3s ease-in-out;
+}
+
+.main-search-task .func-cancel-search  {
+  width: 100%;
+}
+
+.main-search-task .func-cancel-search {
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: 1px solid #262626;
+  background-color: #262626;
+  transition: all .3s ease-in-out;
+}
+
+.main-search-task .func-cancel-search:hover {
+  background-color: #26262651;
+}
+
+.main-search-task.active {
+  transform: translateY(-56px);
+  opacity: 1;
+  visibility: visible;
+}
+
+.container-input-search-task {
+  padding-left: 5px;
+  margin: 15px 0 15px 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
+  color: #fff;
+  transition: all .3s ease-in-out;
+}
+
+.container-input-search-task:hover {
+  transform: translateY(-5px);
+}
+
+.container-input-search-task p {
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.box-search-task .container-btn-add-task i {
+  font-size: 13px;
+}
+
+.box-add-task.box-search-task {
+  padding: 0;
+  margin: 0 0 25px 0;
+  border-bottom: none;
+  width: 420px
+}
+
+
+
+

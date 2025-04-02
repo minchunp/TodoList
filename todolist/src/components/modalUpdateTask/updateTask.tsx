@@ -1,23 +1,17 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import ModalError from "../modalError/page";
-
-interface TaskInterface {
-   id: string,
-   content: string,
-   description: string,
-   startTime: string,
-   deadline: string,
-   status: string
-}
-
+import { TaskInterface } from "@/types/tasks.type";
+import { useUpdateTask } from "@/hooks/useTodo";
+import { toast } from "react-toastify";
+import { queryClient } from "@/context/ReactQueryProvider";
+import { useEffectHiddenModal } from "@/hooks/useEffectHiddenModal";
 interface ModalUpdateProps {
-   id: string;
+   taskProp: TaskInterface;
    isOpen: boolean;
    onClose: () => void
 }
 
-const ModalUpdateTask = ({id, isOpen, onClose}: ModalUpdateProps) => {
+const ModalUpdateTask = ({taskProp, isOpen, onClose}: ModalUpdateProps) => {
    const [task, setTask] = useState<TaskInterface>({
       id: '',
       content: '',
@@ -28,50 +22,34 @@ const ModalUpdateTask = ({id, isOpen, onClose}: ModalUpdateProps) => {
    });
    const [isOpenModalError, setIsOpenModalError] = useState(false);
 
-   const fetchTask = async (id: string) => {
-      try {
-         const respone = await axios.get(`http://localhost:5500/tasks/${id}`);
-         const dataTask = respone.data;
-         console.log("Fetch data Task thành công!", dataTask);
-         setTask(dataTask);
-      } catch (error) {
-         console.log("Fetch data Task thất bại!", error);
-      }
-   }
-
    useEffect(() => {
       if (isOpen) {
-         document.body.style.overflow = "hidden";
-         if (id) fetchTask(id);
-      } else {
-         document.body.style.overflow = ""
+         console.log("Fetch data item task thành công", taskProp)
+         setTask(taskProp)
       }
+   }, [isOpen, taskProp]);
 
-      return () => {
-         document.body.style.overflow = ""
-      }
-   }, [isOpen, id]);
+   useEffectHiddenModal(isOpen);
 
+   const updateTaskMutation = useUpdateTask(task.id, task);
    const handleUpdateTask = async (e: React.FormEvent) => {
       e.preventDefault();
       try {
          if (task.deadline < task.startTime) {
             openModalError();
             console.log('Lỗi Update mốc thời gian!');
-            return;
+            return null;
          }
 
-         const respone = await axios.patch(`http://localhost:5500/tasks/${task.id}`, 
-            {
-               content: task.content,
-               description: task.description,
-               startTime: task.startTime,
-               deadline: task.deadline,
-               status: task.status
+         updateTaskMutation.mutate(undefined, {
+            onSuccess: (data) => {
+               console.log(data.data);
+               toast.success('The task has been updated successfully!');
+               queryClient.invalidateQueries({queryKey: ["tasks"]});
+               console.log("invalidateQueries called", queryClient.invalidateQueries({queryKey: ["tasks"]}));
+               onClose();
             }
-         );
-         console.log("Update data Task thành công!", respone.data);
-         window.location.reload();
+         });
       } catch (error) {
          console.log("Update data Task thất bại!", error);
       }
@@ -85,7 +63,7 @@ const ModalUpdateTask = ({id, isOpen, onClose}: ModalUpdateProps) => {
    const closeModalError = () => setIsOpenModalError(false);
 
    return (
-      <>
+      <Fragment>
          <ModalError contentError="The timestamp you set is invalid!" isOpen={isOpenModalError} onClose={closeModalError} />
          <div className={`main-modal-error main-modal-task-detail ${isOpen?'open':''}`} onClick={onClose} >
             <div className="container-modal-error container-modal-task-detail" onClick={(e) => e.stopPropagation()}>
@@ -109,7 +87,7 @@ const ModalUpdateTask = ({id, isOpen, onClose}: ModalUpdateProps) => {
                </form>
             </div>
          </div>
-      </>
+      </Fragment>
    );
 }
 

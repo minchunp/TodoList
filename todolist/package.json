@@ -10,12 +10,15 @@
     "json-server": "json-server --watch db.json --port 5500"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.71.1",
     "axios": "^1.8.4",
     "date-fns": "^4.1.0",
     "next": "15.2.4",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-loading": "^2.0.3",
     "react-markdown": "^10.1.0",
+    "react-spinners": "^0.15.0",
     "react-toastify": "^11.0.5",
     "swr": "^2.3.3"
   },
