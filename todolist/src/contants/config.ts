@@ -1,3 +1,3 @@
 export const baseURL = {
-   baseLocalURL: "http://localhost:5500",
+   baseLocalURL: process.env.NEXT_PUBLIC_JSON_URL,
 }
