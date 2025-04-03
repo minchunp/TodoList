@@ -6,7 +6,7 @@
       "description": "This is a description in task detail num1",
       "startTime": "2025-04-02T13:38",
       "deadline": "2025-04-02T15:38",
-      "status": "complete"
+      "status": "incomplete"
     },
     {
       "id": "8279",
@@ -22,7 +22,7 @@
       "description": "sửa ",
       "startTime": "2025-04-02T15:54",
       "deadline": "2025-04-02T17:54",
-      "status": "incomplete"
+      "status": "complete"
     }
   ]
 }

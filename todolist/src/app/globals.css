@@ -231,6 +231,7 @@ p.tiltle-result-chatbox {
 .main-search-task {
   display: flex;
   justify-content: space-between;
+  gap: 1px;
   width: 100%;
   position: absolute;
   z-index: 100;
@@ -295,7 +296,7 @@ p.tiltle-result-chatbox {
   padding: 0;
   margin: 0 0 25px 0;
   border-bottom: none;
-  width: 420px
+  width: 400px
 }
 
 
